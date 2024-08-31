@@ -1,10 +1,26 @@
-export default function Card(props) {
-    console.log(props)
+export default function Card({dados}) {
     return (
-        <div class="skill-card">
-            <h3>{props.titulo}</h3>
-            <p>{props.nivel}</p>
-        </div>
+        <>
+        {
+            dados.map((pegaDados,index) => (
+                <div 
+                    class="skill-card" 
+                    key={index} 
+                    style={
+                        {
+                            backgroundColor: pegaDados.bg,
+                            color: pegaDados.color
+                        }}>
+                    
+                    <h3>Título: {pegaDados.titulo}</h3>
+                    <p>Nível: {pegaDados.nivel}</p>
+                    <p>Tempo de XP: {pegaDados.tempoxp}</p>
+                </div>   
+            ))
+        }
+
+            
+        </>
     );
 }
 
